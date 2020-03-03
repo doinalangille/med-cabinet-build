@@ -14,9 +14,9 @@ def create_app():
         model = joblib.load('./web_app/strains_recomender4.joblib')
         strain = data[data['id'] == strain_id]
         strain = strain['Combined']
-
+        sample = strain.head()
         #preds = model.kneighbors(strain)
-        return strain
+        return sample
         
         # TO DO implement pred
         
