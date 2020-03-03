@@ -9,6 +9,11 @@ verify_ssl = true
 flask = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
+flask-cors = "*"
+pandas = "*"
+sklearn = "*"
+scikit-learn = "*"
+tensorflow = "*"
 
 [requires]
 python_version = "3.7"
