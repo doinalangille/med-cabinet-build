@@ -7,13 +7,9 @@ verify_ssl = true
 
 [packages]
 flask = "*"
-gunicorn = "*"
-psycopg2-binary = "*"
-flask-cors = "*"
-pandas = "*"
-sklearn = "*"
 scikit-learn = "*"
 tensorflow = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.7"
