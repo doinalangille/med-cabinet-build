@@ -1,6 +1,6 @@
 from flask import Flask, json
 from json import JSONEncoder
-from flask_cors import CORS
+# from flask_cors import CORS
 import pandas as pd
 import numpy as np
 from sklearn.externals import joblib
