@@ -8,8 +8,8 @@ verify_ssl = true
 [packages]
 flask = "*"
 scikit-learn = "*"
-tensorflow = "*"
 pandas = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
