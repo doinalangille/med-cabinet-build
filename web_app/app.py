@@ -19,7 +19,7 @@ class NumpyArrayEncoder(JSONEncoder):
 def create_app():
     app = Flask(__name__)
     # cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
-    data = pd.read_csv('C:/Users/doina/OneDrive/Desktop/Lambda-School/3_Data-Engineering/med-cabinet-build/strains_text.csv')
+    data = pd.read_csv('./strains_text.csv')
     # model = joblib.load('C:/Users/doina/OneDrive/Desktop/Lambda-School/3_Data-Engineering/med-cabinet-build/strains_recomender4.joblib')
 
     # Model section
