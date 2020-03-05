@@ -1,21 +1,11 @@
 from flask import Flask, json
-from json import JSONEncoder
 import pandas as pd
 import numpy as np
 from sklearn.neighbors import NearestNeighbors
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-
-class NumpyArrayEncoder(JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, np.ndarray):
-            return obj.tolist()
-        return JSONEncoder.default(self, obj)
-
-
 def create_app():
     app = Flask(__name__)
-    # cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
     data = pd.read_csv('./strains_text.csv')
 
     # Model
@@ -41,11 +31,14 @@ def create_app():
         new = tfidf.transform(temp_df.values.tolist()[0])
         pred = var.kneighbors(new.todense())
         recomended = pred[1]
-        strains_info=[]
+        strains_info=json.loads('{}')
         for i in range(4):
             info = data.iloc[recomended[0][i]]
-            strains_info.append(info)
-        return json.dumps(str(strains_info), cls=NumpyArrayEncoder)
+            info = info.to_json()
+            info_name = {f'strain_{i+1}':info}
+            strains_info.update(info_name)
+        return json.dumps(strains_info)
+        # return strains_info
 
     @app.errorhandler(404)
     def page_not_found(error):
